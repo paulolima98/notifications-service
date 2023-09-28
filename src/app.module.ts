@@ -1,18 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { SMTPMailService } from './mail/smtp-mail-service';
-import { MailService } from './mail/mail.service';
-import { PostMarkMailService } from './mail/postmark-mail-service';
-import { HttpModule } from './http.modules';
+import { HttpModule } from './http.module';
+import { PrismaService } from './prisma.service';
 
 @Module({
   imports: [HttpModule],
   controllers: [AppController],
   providers: [
-    {
-      provide: MailService,
-      useClass: PostMarkMailService
-    }
+    PrismaService
   ],
 })
-export class AppModule {}
+export class AppModule { }
