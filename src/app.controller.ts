@@ -16,13 +16,13 @@ export class AppController {
     const { recipientId, content, category } = body;
     console.log(body)
 
-    // return this.prisma.notification.create({
-    //   data: {
-    //     id: randomUUID(),
-    //     content: "Você tem uma nova solicitação de amizade!",
-    //     category: "social",
-    //     recipientId: randomUUID(),
-    //   }
-    // })
+    return this.prisma.notification.create({
+      data: {
+        id: randomUUID(),
+        content,
+        category,
+        recipientId,
+      }
+    })
   }
 }
